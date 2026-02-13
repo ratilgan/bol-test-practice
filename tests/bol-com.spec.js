@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test.only("test", async ({ page }) => {
+test("test", async ({ page }) => {
   await page.goto("https://www.bol.com/be/nl/");
   await page.getByRole("button", { name: "Alles accepteren" }).click();
   await page.getByRole("button", { name: "Doorgaan" }).click();
