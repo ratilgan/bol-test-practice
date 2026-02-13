@@ -23,6 +23,20 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
+
+       # 6. Show report folder
+      - name: Show playwright-report folder
+        if: always()
+        run: ls -R ./playwright-report
+
+      # 7. Publish Playwright HTML report to GitHub Pages
+      - name: Publish report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3.9.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./playwright-report
+          
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
