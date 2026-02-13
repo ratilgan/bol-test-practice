@@ -62,4 +62,4 @@ jobs:
 
             Failed again, FUCK ME !!!
 
-            View full report: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            <a href="https://ratilgan.github.io/bol-test-practice/">View Full Report</a>
