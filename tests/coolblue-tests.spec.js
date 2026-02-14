@@ -19,7 +19,7 @@ test.only("test", async ({ page }) => {
     .first()
     .click();
   await page.getByRole("link", { name: "Bekijk mijn winkelwagen" }).click();
-  await page.getByRole("button", { name: "Ik ga bestellen" }).click();
+  await page.getByRole("link", { name: "Ik ga bestellen" }).click();
   await page.getByRole("textbox", { name: "Je e-mailadres" }).click();
   await page
     .getByRole("textbox", { name: "Je e-mailadres" })
