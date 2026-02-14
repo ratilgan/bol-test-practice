@@ -2,8 +2,8 @@ name: Playwright Tests
 on:
   push:
     branches: [main, master]
-  pull_request:
-    branches: [main, master]
+  #pull_request:
+  #  branches: [main, master]
   schedule:
     # Run every day at 06:00 CET (05:00 UTC)
     - cron: "0 5 * * *"
@@ -51,7 +51,7 @@ jobs:
           server_port: ${{ secrets.EMAIL_PORT }}
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "Playwright Tests - ${{ job.status }} - ${{ github.run_number }}"
+          subject: "Playwright Tests Results - ${{ job.status }} - ${{ github.run_number }}"
           to: ${{ secrets.COLLABORATOR_EMAILS }}
           from: ${{ secrets.EMAIL_FROM }}
           body: |
@@ -62,4 +62,4 @@ jobs:
 
             Failed again, FUCK ME !!!
 
-            <a href="https://ratilgan.github.io/bol-test-practice/">View Full Report</a>
+            View Full Report: https://ratilgan.github.io/bol-test-practice/

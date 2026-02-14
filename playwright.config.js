@@ -34,7 +34,7 @@ export default defineConfig({
     trace: "retain-on-failure",
     // Take a screenshot when test fails.
     screenshot: "only-on-failure",
-    video: "retain-on-failure",
+    video: "on",
   },
 
   /* Configure projects for major browsers */
