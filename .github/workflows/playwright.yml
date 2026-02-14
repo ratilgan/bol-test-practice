@@ -51,15 +51,25 @@ jobs:
           server_port: ${{ secrets.EMAIL_PORT }}
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "Playwright Tests Results - ${{ job.status }} - ${{ github.run_number }}"
+          subject: "${{ job.status == 'success' && '✅' || '❌' }} Playwright Tests - ${{ github.run_number }}"
           to: ${{ secrets.COLLABORATOR_EMAILS }}
           from: ${{ secrets.EMAIL_FROM }}
           body: |
-            Test Run: ${{ github.run_id }}
+            🧪 Test Execution Summary
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━
             Status: ${{ job.status }}
-            Branch: ${{ github.ref }}
+            Run ID: ${{ github.run_id }}
+            Run Number: ${{ github.run_number }}
+            Branch: ${{ github.ref_name }}
             Commit: ${{ github.sha }}
-
-            Failed again, FUCK ME !!!
-
+            Author: ${{ github.actor }}
+            
+            📊 Test Report
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━
             View Full Report: https://ratilgan.github.io/bol-test-practice/
+            
+            💾 Artifacts
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━
+            Artifacts are available for 30 days on GitHub Actions.
+            
+            ⏱️ Timestamp: ${{ github.event.head_commit.timestamp }}
